@@ -1,0 +1,6 @@
+
+realpath(filename);  //函数返回绝对路径
+
+dirname(filename);//返回filename的目录部分 给出全路径，返回目录名
+
+pathinfo(filename,options);//函数以数组形式返回文件路径信息 options:PATHINFO_DIRNAME 只返回dirname,PATHINFO_BASENAME 只返回basename,PATHINFO_EXTENSION 只返回extension

@@ -1,0 +1,37 @@
+第一步：配置文件添加
+server
+    {
+        listen 80;
+        #listen [::]:80;
+        server_name t2.21wy.top;
+        index index.html index.htm index.php default.html default.htm default.php;
+        root  /home/www/wwweb;
+
+        location / {
+            root   /home/www/wwweb;
+            index  index.php;
+            try_files $uri $uri/ /index.php?$uri&$args;
+        }
+
+        location ~ .*.php($|/){
+            root /home/www/wwweb;
+            fastcgi_pass 127.0.0.1:9000;
+            fastcgi_index index.php;
+            fastcgi_read_timeout 1500;
+            fastcgi_split_path_info ^(.+\.php)(.*)$;
+            fastcgi_param PATH_INFO $fastcgi_script_name;
+            fastcgi_param PATH_TRANSLATED $document_root$fastcgi_path_info;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            include fastcgi_params;
+        }
+    } 重启nginx
+
+
+
+第二部：dns域名服务页面 
+
+添加域名-》添加二级域名-》记录TXT的值 《（候用）记录主机记录和记录值，在主域名设置下班添加记录，选择TXT记录类型，填进记录类型和记录值》
+
+主域名解析设置-》添加记录-》添加TXT记录
+
+主域名页面-》添加域名-》TXT验证-》添加记录，解析到服务器-》完成

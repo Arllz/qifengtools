@@ -1,0 +1,33 @@
+                                                  swoolefy学习笔记
+
+环境要求：
+1.php版本>=7.1,建议7.1+
+2.swoole版本>=4.2+，建议使用swoole4.3.3+，全面支持协成
+3.pcntl,posix，zlib,sockets,mbstring扩展。
+
+检查php版本：php -v
+检查swoole版本： php --ri swoole
+检查php扩展：php -m
+
+可能遇到的问题：
+1.创建目录的权限。
+2.无端killed.可能是因为内存不够.
+解决方案；创建交换分区
+	# 创建空文件
+	dd if=/dev/zero of=/swap bs=1024k count=1024
+	# 制作成交换区
+	mkswap /swap
+	# 修改文件权限到安全权限
+	chmod 600 /swap
+	# 启动交换区
+	sudo swapon /swap
+	# 查看当前内存情况
+	free -m
+	
+	
+启动|停止服务的时候端口被占用，但是找不到占用端口的pid
+解决方法：
+1、netstat -tln 查看本机网络链接列表。
+2.lsof -i:9502 找到端口占用的进程
+3.杀死进程 kill -9 pid
+				

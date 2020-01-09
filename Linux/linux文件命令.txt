@@ -1,0 +1,33 @@
+1 移动文件： move filename directer/
+
+2 删除文件夹： rm -rf dirname 
+               --r 递归删除
+               --f 强制删除
+
+3 重命名文件： move name1 name2
+
+4 查看文件的内容： cat filename
+
+5 查看文件的前20行：head -n 20 filename
+
+6.查看文件的后20行： tail -n 20 filename
+
+7 查找文件： find . -name *java*  在当前文件夹下边查找文件名包含java字符的文件
+             find . -perm 777 在当前位置查找权限是777的文件
+             查找参数： -name -perm -user -group -type -size
+
+             //文件夹下查找字符串
+             grep -rn "hello" *
+             * : 表示当前目录所有文件
+             -r : 是递归查询
+             -n : 显示行号
+             -R : 查找所有包含文件子目录
+             -i : 忽略大小写
+
+8 归档压缩： tar   -zcvf        log.tar.gz         log/
+                           压缩后的文件名   压缩的目录
+
+9 解压文件： tar -zcvf tarname 
+
+10复制文件夹： cp -r file1 file2
+             

@@ -1,0 +1,96 @@
+//数据库查询
+
+========================= MYSQL字符串函数 ====================================
+
+
+
+select CURDATE(); #2019-09-06  输入"今天"的日期
+
+select CURRENT_TIMESTAMP;#2019-09-06 09:50:40  输入"现在"的年月日时分秒
+
+select NOW();#2019-09-06 09:50:40  输入"现在"的年月日时分秒
+
+DATE_SUB(date,INTERVAL expr type);# date:yyyy-mm-dd H:i:s格式，减掉expr(int) type(DAY,HOUR,WEEK)时间
+
+CONCAT(s1,s2....);#合并字符串  输出 s1s2
+
+CONCAT_WS(x,s1,s2...)#合并字符串 x分隔符
+
+FORMAT(x,n);#数字格式化 x数字金额，n保留小数点后几位，最后一位四舍五入
+
+SUBSTR(s,start,length);#从字符串s的start位置开始截取长度length的子字符串
+
+
+
+========================= MYSQL数字函数 ====================================
+
+ABS(x) 返回x的绝对值
+
+AVG(expression); 返回一个表达式的平均值 expression是一个字段
+
+
+
+========================= MYSQL日期函数 ====================================
+
+ADDDATE(date,n);计算起始日期d加上n天的日期,ADDDATE("2019-09-06",INTERVAL 10 DAY);
+
+ADDTIME(date,n);计算时间date加上n秒的的时间
+
+CURRDATE();//返回当前日期 2019-09-06
+
+CURRENT_DATE();//返回当前日期 2019-09-06
+
+CURRENT_TIMESTAMP();//返回当前的日期和时间 2019-09-06 11:20:35
+
+DATEDIFF(d1,d2);//计算日期d1>d2之间间隔的天数
+
+DATE_ADD(d, INTERVAL expr type);计算起始日期d加上一个时间段后的日期
+
+NOW();//返回当前的日期和时间 2019-09-06 11:20:35
+
+
+
+========================= MYSQL高级函数 ====================================
+
+CASE
+    WHEN condition1 THEN
+result1
+    WHEN condition2 THEN
+result2
+    WHEN condition3 THEN
+result3
+    ELSE
+reulst
+END;
+
+
+
+IF(expr,v1,v2);如果表达式v1成立返回v1,否则返回v2
+
+IFNULL(v1,v2);如果V1不为NULL,则返回v1,否则返回v2
+
+
+
+
+========================= MYSQL 查询 ====================================
+
+//查询id最大的一件商品
+select good_id,good_name,cat_id,shop_price from goods where good_id = (select MAX(good_id) from goods);
+
+//查询每个类别下id最大的商品
+select good_id,good_name,cat_id,shop_proce from goods where good_id in (select MAX(good_id) from goods group by good_id);
+
+//查询每个类别下id最大的商品
+select good_id,good_name,cat_id,shop_price from (select good_id,good_name,cat_id,shop_price from goods
+order by cat_id asc,good_id desc) as tmp group by cat_id;
+
+//查询类别下有商品的类别信息
+select cat_name,cat_id from category where cat_id in (select cat_id from goods group by cat_id);
+select c.cat_name,c.cat_id from category c where exist (select 1 from goods g where g.cat_id=c.cat_id);
+
+
+
+
+
+
+

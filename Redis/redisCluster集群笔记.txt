@@ -1,0 +1,44 @@
+﻿1.报错：A ResourcePool could not acquire a resource from its primary factory or source.
+  处理方法：
+
+
+
+
+
+
+
+2.mysql报错:Your password does not satisfy the current policy requirements
+  处理方法：mysql密码策略有问题！
+  1>.查看mysql处理密码策略：show variables like 'validate_password%';
+   关于 mysql 密码策略相关参数；
+1）、
+   validate_password_length  固定密码的总长度；
+2）、   
+   validate_password_dictionary_file 指定密码验证的文件路径；
+3）、            validate_password_mixed_case_count  整个密码中至少要包含大/小写字母的总个数；
+4）、            validate_password_number_count  整个密码中至少要包含阿拉伯数字的个数；
+5）、
+   关于 validate_password_policy 的取值：
+   0/LOW：只验证长度；
+   1/MEDIUM：验证长度、数字、大小写、特殊字符；
+   2/STRONG：验证长度、数字、大小写、特殊字符、字典文件；
+     设置validate_password_policy的全局参数为LOW
+     命令：set global validate_password_policy=LOW;
+
+
+
+
+
+
+3./opt/cachecloud-web/logs/stderr.log报错：
+  org.quartz.SchedulerException: Couldn't get host name!
+
+   解决办法：1>linux命令#：hostname
+             2>把hostname的主机名添加到/etc/hosts末尾
+
+
+4.SSH新建用户： username:redismanager password:redis123
+
+
+
+

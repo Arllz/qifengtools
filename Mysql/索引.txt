@@ -1,0 +1,24 @@
+  索引：
+  
+  作用： mysql索引可以大大提高mysql的检索速度。
+         实际上，索引也是一张表，该表保存了主键与索引字段，并指向实体表的记录。
+
+   缺点：过多的使用索引将会造成滥用，同时会降低更新表的速度。
+
+
+   索引分类：
+  
+   1.普通索引:create index indexName on mytable(username(length));
+   2.唯一索引:create unique index indexName on mytable(username(length));
+   3.组合索引:create index indexNmae on mytable(username(lenth),passwd(length),addTIme(length));
+     
+
+   组合索引：如果不是按照复合索引的最左列开始查找，则无法使用索引。
+             如果查找时跳过了索引的列，则只有前面的索引的列会用到。
+             如果查询中有某个列的范围查询，则该列右边的所有列都无法使用索引优化查询。（范围查询：like,>,<,）
+
+
+   前缀索引和索引的选择性：一般情况下，某个列前缀的选择性也是足够高的，足以满足查询性能，对于blob,text,或很长的                           varchar类型的列，必须使用前缀索引，即只对列的前面几个字符进行索引，因为mysql不允许索                           引这些列的完整长度。
+                           create index indexName on mytable(username(8));//只索引username字段的前8个字符。
+                           
+                           前缀索引的缺点：mysql无法使用前缀索引做order by和group by 操作，也无法使用前缀索引做                                           覆盖扫描。

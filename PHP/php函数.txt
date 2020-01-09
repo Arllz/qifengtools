@@ -1,0 +1,104 @@
+1.set_time_limit(int $second):  设置脚本运行的时间，单位为妙，调用次函数时，set_time_limit()会从零开始重新技术计数.如果设置为0,没用时间方面的限制。
+
+
+
+
+2.ignore_user_abort([bool $value]);设置客户端中断脚本是否执行。0不中断，1中断。
+
+
+
+
+3.error_reporting([int $level]):设置应该报告何种php错误
+                                error_reporting(0);//关闭所有php错误报告
+                                error_reporting(-1), error_reporting(E_ALL);//报告php所有错误
+                                error_reporting(E_ALL ^ E_NOTICE);//除了E_NOTICE错误，报告其他所有错误
+                                error_reporting(E_ERROR);//只报告致命错误
+                                error_reporting(E_PAESE);//报告编译时的语法解析错误
+                                error_reporting(E_WARNING);//报告编译时的语法解析错误
+
+
+
+
+4.bcsub($param1,$param2[,$scale = int]):左操作数减去右操作数。
+  $a = '1.234';
+  $b = '5';
+  echo bcsub($a,$b);//没选精度，-3
+  echo bcsub($a,$b,4);//-3.7660
+
+
+
+
+5 .call_user_func_array(callback $callback,array $param_arr);调用回调函数，并把一个数组参数作为回调函数的参数
+   # callback $callback,被调用的回调函数
+   # array $param_arr,要被传入回调函数的数组，这个数组得是索引数组
+   # 返回回调函数的结果，如果出错的话就返回FALSE
+
+
+
+
+6. strstr(string $haystack,mix $needle[,bool $before_needle = FALSE]);//返回haystack字符串从needle第一次出现的位置开始到haystack结尾的字符串
+   # 字符串截取 从haystack的$needle开始截取到末尾
+   # $haystack被截取的字符串
+   # $needle 开始位置
+   # $before_needle FALSE默认往后截取，TRUE从这个位置开始往前截取
+
+7.strtr(string,from,to);string:规定要转换的字符串，from：规定要改变的字符，to：规定要改变为的字符。
+  strtr(sting,array);数组，其中键名是更改的原始字符，键值是更改的目标字符
+
+
+8.get_class($object);返回对象的类名，如果在类里，此参数可以省略
+
+
+9.is_int($num);判断变量是否是整数类型，is_numeric监测变量是否是为数字或数字字符串
+
+
+
+10.array_map(myfunction,array1,array2.....);函数把自定义函数myfunction作用到array1...的每个值上，并返回用户自定义函数作用后的带有新值的数组
+
+
+11.mt_rand(min,max):返回mix，max之间的随机数
+
+
+12.array_unshifg($arr,$param);//将$param插入到数组$arr中，并插入数组的开头，例如：array_unshift(array('a'=>'red','b'=>'green'),'blue');#输出：Array ( [0] => blue [a] => red [b] => green )
+
+
+13.str_replace(find,replace,string,count);#函数以其他字符替换字符串中的一些字符
+  find:x规定要查找的的值
+  replace:规定替换find中的值的值
+  string:规定被搜索的字符串
+  count:对替换数进行计数的变量
+
+14.microtime();#返回unix的微秒数，默认返回字符串 "microsec sec" #0.07953400 1568970955 sec为秒数（等于time()）,microsec微妙
+
+15.is_callback(func):判断环境内func方法是否能调用
+
+16.array_push($array,'red'):#向数组$array尾部添加‘red’
+
+17.strpos($str,$needle);#$needle在字符串$str第一次出现的位置，如果返回false
+
+18.array_filp($arr);#翻转$arr数组的键名对应关联的键值
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
