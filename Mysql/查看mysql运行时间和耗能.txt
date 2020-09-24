@@ -1,0 +1,12 @@
+1.切换到mysql命令行：
+#：show variables like '%pro%';//查看profiling是否开启，没有开启.
+
+
+2开启：#：set global profiling=1;//重启命令行：
+
+
+3.在命令行运行mysql的sql语句。
+
+4.#：show profiles;//显示sql语句的运行时间。
+
+4.#：show profile query {Query_ID};//显示mysql运行的具体情况。
