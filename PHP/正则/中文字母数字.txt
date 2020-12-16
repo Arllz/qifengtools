@@ -1,0 +1,2 @@
+PHP语法:preg_match('/^[a-zA-Z0-9\x80-\xff]+$/',$name)
+JS语法： ret = /^[a-zA-Z0-9\u4e00-\u9fa5]+$/.test(string)

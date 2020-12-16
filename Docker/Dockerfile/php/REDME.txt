@@ -1,0 +1,10 @@
+第一步：下载php-7.4.8.tar.gz文件。
+第二步：确定docker启动正常，systemctl status docker
+第三步：修改Dockerfile的第14行为php的文件（ADD 自动解压）,修改文本php74文件夹名字[自定义正确就好]。
+第四步：在的当前路径下运行：# docker build -t imageName:tag .
+第五步：第四步成功之后，镜像构建成功。
+第六步：构建容器：# docker run -d --name myphp imageName:tag  (容器存在，状态为Exited(0))。
+        加参数：# docker run -d --name myphp imageName:tag /bin/bash 启动成功，
+        docker ps -a的COMMAND为“/bin/bash” 替换Dockerfile里的 CMD ["/etc/init.d/php-fpmfpm","start"].
+END
+注意：php-7.4.8.tar.gz与Dockerfile在同一文件夹下。

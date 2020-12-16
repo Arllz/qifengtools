@@ -1,0 +1,6 @@
+password模式：
+client_id:shy7jf8fa93d59c45502c0ae8chj76s
+client_secret:bc7f6f8fa93d59c45502c0ae8c4a95d
+grant_type:password
+username:heyue1
+password:123456

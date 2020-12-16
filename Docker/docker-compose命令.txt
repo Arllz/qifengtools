@@ -1,0 +1,9 @@
+docker-compose pull：拉取服务里定义的镜像
+docker-compose ps ：列出project所有运行容
+docker-compose build：构建/重新构建所有镜像
+docker-compose down -v（相当于 stop + rm ）：停止并移除整个project的所有services
+docker-compose logs [serviceName]：查看服务内所有容器日志输出，
+docker-compose run service command：在某个服务上运行命
+docker-compose exec [serviceName] sh：进入到某个容器
+docker-compose config：验证和查看compose文件
+docker-compose images：列出所用的镜像
